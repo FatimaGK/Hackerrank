@@ -27,14 +27,29 @@ public class Solution {
     }
 
     public static void calculate(int[] x, int n) {
-//        double median = 0;
-//        double mode = 0;
         //calculate mean
         double sum = 0;
         for (int i = 0; i < n; i++) {
             //int add=0;
             sum += x[i];
         }
-        System.out.println("Average= "+sum/n);
+        System.out.println("Average= " + sum / n);
+        double median = 0;
+        //calculate median
+        if (n % 2 == 0) {//if array has even number of numbers
+
+            for (int i = 0; i < n; i++) {
+
+                median =((double)x[n/2]+(double) x[n/2-1])/2;
+//                median = (num1 + num2) / 2;
+            }
+        } else {
+            for (int i = 0; i < n; i++) {
+                median = x[(n-1) / 2];
+                System.out.println(median);
+            }
+        }
+        System.out.println("Median= " + median);
+        //calculate mode
     }
 }
