@@ -22,11 +22,21 @@ public class Solution {
         for (int i = 0; i < myInt; i++) {
             numbers[i] = Integer.parseInt(StrNumbers[i]);
         }
-
         calculate(numbers, myInt);
     }
 
     public static void calculate(int[] x, int n) {
+        //sort whole array
+        int tmp;
+        for (int a = 0; a < n - 1; a++) {
+            for (int i = a + 1; i < n; i++) {
+                if (x[a] > x[i]) {
+                    tmp = x[a];
+                    x[a] = x[i];
+                    x[i] = tmp;
+                }
+            }
+        }
         //calculate mean
         double sum = 0;
         for (int i = 0; i < n; i++) {
@@ -34,22 +44,32 @@ public class Solution {
             sum += x[i];
         }
         System.out.println("Average= " + sum / n);
-        double median = 0;
+
         //calculate median
+        double median = 0;
         if (n % 2 == 0) {//if array has even number of numbers
-
             for (int i = 0; i < n; i++) {
-
-                median =((double)x[n/2]+(double) x[n/2-1])/2;
-//                median = (num1 + num2) / 2;
+                median = ((double) x[n / 2] + (double) x[n / 2 - 1]) / 2;
             }
         } else {
             for (int i = 0; i < n; i++) {
-                median = x[(n-1) / 2];
-                System.out.println(median);
+                median = x[(n - 1) / 2];
             }
         }
         System.out.println("Median= " + median);
         //calculate mode
+        int count = 0;
+        int mode;
+        for (int i = 0; i < n; i++) {
+            for (int y = 0; y < n; y++) {
+                int save = x[i];
+                if (save == x[y]) {
+                    count++;
+//                    System.out.println("y =" + x[y]);
+                }
+//                System.out.println("i = " + x[i]);
+            }
+        }
+//        System.out.println(sum + "   djcsihsalkdhas");
     }
 }
