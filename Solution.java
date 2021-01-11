@@ -58,18 +58,21 @@ public class Solution {
         }
         System.out.println("Median= " + median);
         //calculate mode
+        int maxCount = 0;
+        int mode = 0;
         int count = 0;
-        int mode;
         for (int i = 0; i < n; i++) {
             for (int y = 0; y < n; y++) {
-                int save = x[i];
-                if (save == x[y]) {
+                if (x[i] == x[y]) {
                     count++;
-//                    System.out.println("y =" + x[y]);
                 }
-//                System.out.println("i = " + x[i]);
+                if (count > maxCount) {
+                    maxCount = count;
+                    mode = x[i];
+                }
             }
+
         }
-//        System.out.println(sum + "   djcsihsalkdhas");
+        System.out.println((double)mode);
     }
 }
