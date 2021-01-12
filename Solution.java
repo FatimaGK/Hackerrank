@@ -1,27 +1,23 @@
 package math;
-
 import java.io.*;
 import java.util.*;
 import java.text.*;
 import java.math.*;
-import java.util.regex.*;
+import java.util.regex.*;import java.util.*;
+
 
 public class Solution {
 
     public static void main(String[] args) {
-        System.out.println("please specify array length");
+        /* Enter your code here. Read input from STDIN. Print output to STDOUT. Your class should be named Solution. */
         Scanner input = new Scanner(System.in);
         int myInt = input.nextInt();
-        Scanner input2 = new Scanner(System.in);
-        System.out.println("please enter all numbers of the array");
-        String strArr = input2.nextLine();
-        String[] StrNumbers = new String[myInt];
-
         int[] numbers = new int[myInt];
-        StrNumbers = strArr.trim().split(" ");
         for (int i = 0; i < myInt; i++) {
-            numbers[i] = Integer.parseInt(StrNumbers[i]);
+            numbers[i] = input.nextInt();
         }
+
+        input.close();
         calculate(numbers, myInt);
     }
 
@@ -43,7 +39,7 @@ public class Solution {
             //int add=0;
             sum += x[i];
         }
-        System.out.println("Average= " + sum / n);
+        System.out.println( sum / n);
 
         //calculate median
         double median = 0;
@@ -56,7 +52,7 @@ public class Solution {
                 median = x[(n - 1) / 2];
             }
         }
-        System.out.println("Median= " + median);
+        System.out.println( median);
         //calculate mode
         int maxCount = 0;
         int mode = 0;
